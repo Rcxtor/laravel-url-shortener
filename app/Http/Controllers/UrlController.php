@@ -83,7 +83,7 @@ class UrlController extends Controller
     }
     public function stats(Url $url)
     {
-        Gate::authorize('delete', $url);
+        Gate::authorize('view', $url);
 
         return response()->json([
             'success' => true,
