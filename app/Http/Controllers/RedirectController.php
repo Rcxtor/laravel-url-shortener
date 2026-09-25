@@ -14,4 +14,9 @@ class RedirectController extends Controller
 
         return redirect()->away($url->original_url);
     }
+    public function check(string $shortCode)
+    {
+        $exists = Url::where('short_code', $shortCode)->exists();
+        return response()->json(['exists' => $exists]);
+    }
 }

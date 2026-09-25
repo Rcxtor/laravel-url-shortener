@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply text-gray-800;
+    @apply cursor-default
+    
+  }
+  
+  h1 {
+    @apply text-xl font-bold text-gray-900;
+    
+  }
+  button
+  {
+    @apply cursor-pointer;
+  }
+  body {
+  background-color: rgb(242, 242, 242);
+  background-image: 
+    /* The Large Grid (Slightly darker lines) */
+    linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+    
+    /* The Small Grid (Very faint lines) */
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    
+  /* 
+    The large grid is 80px. 
+    The small grid is 20px. 
+    (80 ÷ 20 = 4 columns and 4 rows = 16 small squares inside) 
+  */
+  background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+}
+}

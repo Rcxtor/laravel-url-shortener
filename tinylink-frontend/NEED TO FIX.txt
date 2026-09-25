@@ -1,0 +1,13 @@
+1. can access the login and register page even when logged in (DONE)
+2. guest link system
+3. for invaid link to show error page (DONE)
+
+
+
+
+Link Health Monitor
+One-time link
+Smart Link Rules -> same code 2 different web based on condition 
+free user link 5 times click able
+
+QR code
