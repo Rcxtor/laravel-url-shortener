@@ -34,7 +34,7 @@ function Navbar() {
 
                 {isAuthenticated  ? (
                     <div className="flex items-center gap-6">
-                        <Link className={hoverEffect} to="/dashboard">Dashboard</Link>
+                        <Link className={hoverEffect} to="/my-url">My URL</Link>
                         <button className={buttonEffect} onClick={handleLogout}>Logout </button>
                     </div>
                     

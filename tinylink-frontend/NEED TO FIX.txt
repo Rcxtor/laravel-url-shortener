@@ -1,6 +1,12 @@
 1. can access the login and register page even when logged in (DONE)
-2. guest link system
+2. guest link system (DONE)
 3. for invaid link to show error page (DONE)
+5. home guest shorten link display (DONE)
+6. logged in user can create temp link (DONE) 
+4. home when logged in user // can show your recent link /// for logged in still show the create shorten link but this will not be the guest one (DONE)
+need to change the you shorten url (DONE)
+7. the instead of code need to show link? (DONE)
+8. somewhat profile management
 
 
 
@@ -9,5 +15,6 @@ Link Health Monitor
 One-time link
 Smart Link Rules -> same code 2 different web based on condition 
 free user link 5 times click able
-
+Guest creation:
+10 links per IP per hour
 QR code

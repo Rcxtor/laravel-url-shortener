@@ -23,3 +23,6 @@ export function deleteUrl(id) {
 export function checkShortCode(code) {
     return api.get(`/check/${code}`);
 }
+export function createGuestUrl(urlData) {
+    return api.post("/guest-urls", urlData);
+}

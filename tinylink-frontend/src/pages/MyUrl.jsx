@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { getUrls, createUrl, deleteUrl } from "../api/urlAPI";
-import { logoutUser } from "../api/authApi";
 import { Link } from "react-router-dom";
 
-function Dashboard() {
+function MyUrl() {
     const [urls, setUrls] = useState([]);
     const [url, setUrl] = useState("");
     const [message, setMessage] = useState("");
@@ -23,19 +22,7 @@ function Dashboard() {
             setLoading(false);
         }
     }
-    async function handleLogout() {
-        try {
-            await logoutUser();
-
-            localStorage.removeItem("token");
-
-            window.location.href = "/login";
-        } catch (error) {
-            setMessage(
-                error.response?.data?.message || "Logout failed"
-            );
-        }
-    }
+    
 
     async function handleDelete(id) {
         try {
@@ -78,10 +65,8 @@ function Dashboard() {
 
     return (
         <div>
-            <h2>Dashboard</h2>
-            <button onClick={handleLogout}>
-                Logout
-            </button>
+            <h2>My URL</h2>
+            
             <h3>Shorten a URL</h3>
 
             <form onSubmit={handleSubmit}>
@@ -122,4 +107,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default MyUrl;

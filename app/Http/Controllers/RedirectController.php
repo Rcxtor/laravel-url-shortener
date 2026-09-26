@@ -10,6 +10,10 @@ class RedirectController extends Controller
     {
         $url = Url::where('short_code', $shortCode)->firstOrFail();
 
+        if($url->isGuest() && $url->click_count >=5){
+            $url->delete();
+        }
+
         $url->increment('click_count');
 
         return redirect()->away($url->original_url);

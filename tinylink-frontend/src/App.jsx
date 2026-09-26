@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
+import MyUrl from "./pages/MyUrl";
 import Statistics from "./pages/Statistics";
 import Navbar from "./component/Navbar";
 import ShortCode from "./pages/ShortCode";
@@ -26,7 +26,7 @@ function App() {
                     <Route path="*" element={<NotFound />} />
 
                     {/* Protected */}
-                    <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}/>
+                    <Route path="/my-url" element={<ProtectedRoute><MyUrl /></ProtectedRoute>}/>
                     <Route path="/urls/:id" element={ <ProtectedRoute> <Statistics /> </ProtectedRoute> }/>
 
                     {/* Guest */}

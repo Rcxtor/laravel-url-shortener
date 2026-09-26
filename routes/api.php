@@ -9,7 +9,10 @@ use App\Http\Controllers\RedirectController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/check/{shortCode}', [RedirectController::class, 'check']);
 
+// guest URL creation
+Route::post('/guest-urls', [UrlController::class, 'storeGuest']);
 
 //protected routes 
 Route::middleware('auth:sanctum')->group(function () {
@@ -24,5 +27,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/urls/{url}', [UrlController::class, 'show']);
     Route::delete('/urls/{url}', [UrlController::class, 'destroy']);
     Route::get('/urls/{url}/stats', [UrlController::class, 'stats']);
-    Route::get('/check/{shortCode}', [RedirectController::class, 'check']);
-});
+    });

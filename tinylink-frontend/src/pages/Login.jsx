@@ -25,7 +25,7 @@ function Login() {
             login(token);
 
             setMessage("Login successful");
-            navigate("/dashboard");
+            navigate("/");
         } catch (error) {
             setMessage(
                 error.response?.data?.message || "Login failed"

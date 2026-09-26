@@ -5,7 +5,8 @@ function GuestRoute({ children }) {
     const { isAuthenticated } = useAuth();
 
     if (isAuthenticated) {
-        return <Navigate to="/dashboard" replace />;
+        // return <Navigate to="/my-url" replace />;
+        return <Navigate to="/" replace />;
     }
 
     return children;

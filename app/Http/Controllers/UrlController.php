@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUrlRequest;
 use App\Models\Url;
@@ -19,7 +20,17 @@ class UrlController extends Controller
         // } while (Url::where('short_code', $shortCode)->exists());
 
         $shortCode = $request->validated()['short_code'] ?? null;
-        if (!$shortCode) {
+
+        if ($shortCode) {
+            if (Url::where('short_code', $shortCode)->exists()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'This custom code already exists.',
+                ], 422);
+            }
+        } 
+ 
+        else {
             do {
                 $shortCode = Str::random(5);
             } while (Url::where('short_code', $shortCode)->exists());
@@ -94,5 +105,36 @@ class UrlController extends Controller
                 'click_count' => $url->click_count,
             ],
         ]);
+    }
+
+    // for guest URL
+    public function storeGuest(StoreUrlRequest $request)
+    {
+        if (auth('sanctum')->check()){
+            return response()->json([
+                'success' => false,
+                'message' => 'Logged-in users cannot create guest URLs.',
+            ], 403);
+        }
+        do {
+            $shortCode = Str::random(5);
+        } while (Url::where('short_code', $shortCode)->exists());
+
+        $url = Url::create([
+            'original_url' => $request->validated()['url'],
+            'short_code' => $shortCode,
+            'click_count' => 0,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'URL shortened successfully',
+            'data' => [
+                'id' => $url->id,
+                'original_url' => $url->original_url,
+                'short_code' => $url->short_code,
+                'click_count' => $url->click_count,
+            ],
+        ], 201);
     }
 }
