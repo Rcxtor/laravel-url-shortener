@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import GuestBox from "../component/GuestBox";
 import UserBox from "../component/UserBox";
 import { useAuth } from "../context/AuthContext";
@@ -6,6 +6,11 @@ import { useAuth } from "../context/AuthContext";
 function Home() {
     const { isAuthenticated } = useAuth();
     const [shortCode, setShortCode] = useState("");
+
+    useEffect(() => {
+        document.title = "TinyLink";
+    }, []);
+
     function handleSubmit(event) {
         event.preventDefault();
 
@@ -21,7 +26,7 @@ function Home() {
     
 
     return (
-        <div className="flex flex-col items-center mt-10">
+        <div className="flex flex-col items-center mt-10 min-h-screen">
             <h1 className="text-6xl font-bold text-gray-800">TinyLink</h1>
 
             <p className="mt-4 text-2xl mb-10">Shorten your links, simply.</p>

@@ -6,15 +6,16 @@
 4. home when logged in user // can show your recent link /// for logged in still show the create shorten link but this will not be the guest one (DONE)
 need to change the you shorten url (DONE)
 7. the instead of code need to show link? (DONE)
+10. UI -> myurl and statictics and checking (DONE)
+9. forget password
 8. somewhat profile management
 
 
 
+free user link 5 times click able (DONE)
+One-time link (DONE)
 
 Link Health Monitor
-One-time link
 Smart Link Rules -> same code 2 different web based on condition 
-free user link 5 times click able
-Guest creation:
-10 links per IP per hour
+Guest creation: 10 links per IP per hour
 QR code

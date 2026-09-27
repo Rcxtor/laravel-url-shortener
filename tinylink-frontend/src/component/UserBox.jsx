@@ -41,7 +41,7 @@ export default function UserBox()
     }
 
     return(
-        <div className="border-2 rounded-md flex mt-20 w-2xl divide-x-2">
+        <div className="border-2 rounded-md flex my-20 w-2xl divide-x-2">
             <div className="flex flex-col items-center w-full py-10" >
                 <div className="flex flex-col items-center">
 

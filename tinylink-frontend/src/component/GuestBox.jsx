@@ -34,7 +34,7 @@ export default function GuestBox(){
     }
 
     return(
-        <div className="border-2 rounded-md flex flex-row mt-20 w-2xl divide-x-2">  {/* main container*/}
+        <div className="border-2 rounded-md flex flex-row my-20 w-2xl divide-x-2">  {/* main container*/}
             
                 {/* options  */}
                 <div className="flex flex-col items-center w-[60%] py-10" > {/* guest */}

@@ -1,8 +1,12 @@
 
 import api from "./api";
 
-export function getUrls() {
-    return api.get("/urls");
+// export function getUrls() {
+//     return api.get("/urls");
+// }
+
+export function getUrls(params) {
+    return api.get("/urls", { params });
 }
 
 export function createUrl(urlData) {

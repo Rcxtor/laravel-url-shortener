@@ -9,6 +9,10 @@ function ShortCode() {
     const [status, setStatus] = useState("checking");
 
     useEffect(() => {
+        document.title = "Redirecting - TinyLink";
+    }, []);
+
+    useEffect(() => {
         checkShortCode(shortCode)
             .then((response) => {
                 if (response.data.exists) {
@@ -23,7 +27,14 @@ function ShortCode() {
     }, [shortCode]);
 
     if (status === "checking") {
-        return <p>Checking link...</p>;
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <div className="border-2 -mt-20 border-gray-800 rounded-md bg-white p-8 shadow-2xl flex flex-col items-center gap-4">
+                    <div className="w-10 h-10 border-4 border-gray-300 border-t-gray-800 rounded-full animate-spin"></div>
+                    <p className="text-gray-600 font-medium">Redirecting to link...</p>
+                </div>
+            </div>
+        );
     }
 
     return <NotFound />;

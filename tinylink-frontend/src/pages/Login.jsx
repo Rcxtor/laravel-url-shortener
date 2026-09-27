@@ -1,7 +1,7 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { loginUser } from "../api/authApi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 function Login() {
@@ -10,6 +10,10 @@ function Login() {
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
     const { login } = useAuth();
+
+    useEffect(() => {
+        document.title = "Login - TinyLink";
+    }, []);
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -34,34 +38,43 @@ function Login() {
     }
 
     return (
-        <div>
-            <h2>Login</h2>
+        <div className="flex items-center min-h-screen justify-center">
+            <div className=" -mt-45 py-10 px-10 border-2 border-gray-800 rounded-md w-96 shadow-2xl bg-gray-50 flex flex-col items-center">
+                
+                <h1 className="text-3xl font-bold text-gray-800 mb-1">TinyLink</h1>
+                <p className="text-gray-500 mb-6">Log in to your account</p>
 
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(event) => setEmail(event.target.value)}
-                    />
-                </div>
+                <form className="w-full flex flex-col gap-4" onSubmit={handleSubmit}>
+                    <div className="flex flex-col gap-1">
+                        <label className="text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" value={email} onChange={(event) => setEmail(event.target.value)}
+                            className="border-2 border-gray-800 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-800"
+                            placeholder="you@example.com"
+                        />
+                    </div>
 
-                <div>
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                    />
-                </div>
+                    <div className="flex flex-col gap-1">
+                        <label className="text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" value={password} onChange={(event) => setPassword(event.target.value)}
+                            className="border-2 border-gray-800 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-800"
+                            placeholder="••••••••"
+                        />
+                    </div>
 
-                <button type="submit">
-                    Login
-                </button>
-            </form>
+                    <button type="submit" className="bg-gray-800 text-white font-bold py-2 rounded-md mt-2 hover:bg-gray-600 transition" >
+                        Log In
+                    </button>
+                </form>
 
-            <p>{message}</p>
+                {message && <p className="text-sm text-red-600 mt-4">{message}</p>}
+
+                <p className="text-sm text-gray-500 mt-6">
+                    Don't have an account?{" "}
+                    <Link to="/register" className="font-semibold text-gray-800 underline">
+                        Sign Up
+                    </Link>
+                </p>
+            </div>
         </div>
     );
 }

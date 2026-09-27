@@ -21,9 +21,9 @@ export default function RecentBox(){
     }, []);
     return(
         <div className="flex flex-col gap-2 w-[80%]">
-            <h1 className="my-2">Recent URLs</h1>
+            <h1 className="my-2">Recent 5 URLs</h1>
             {recentUrls.map((url) => (
-            <div key={url.id} className="border-2 flex flex-row items-center justify-between rounded-lg border-gray-800 py-2 px-3">
+            <div key={url.id} className="border-2 flex flex-row items-center justify-between rounded-lg border-gray-800 bg-gray-50 py-2 px-3">
                 <div className="flex flex-col">
                     <h2 className="text-lg font-semibold text-blue-950">{window.location.origin}/{url.short_code}</h2>
                     <p className="text-sm text-gray-600">{url.original_url}</p>
