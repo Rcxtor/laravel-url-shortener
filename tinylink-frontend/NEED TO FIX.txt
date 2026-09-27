@@ -7,7 +7,7 @@
 need to change the you shorten url (DONE)
 7. the instead of code need to show link? (DONE)
 10. UI -> myurl and statictics and checking (DONE)
-9. forget password
+9. forget password (DONE)
 8. somewhat profile management
 
 

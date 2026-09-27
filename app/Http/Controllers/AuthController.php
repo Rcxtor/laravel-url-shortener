@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
 
 class AuthController extends Controller
 {
@@ -86,5 +87,64 @@ class AuthController extends Controller
                 'user' => $request->user(),
             ],
         ]);
+    }
+
+    public function forgotPassword(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email'],
+        ]);
+
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        if ($status === Password::RESET_LINK_SENT) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Password reset link sent successfully.',
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'status' => $status,
+            'message' => 'Unable to send password reset link.',
+        ], 400);
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email'],
+            'token' => ['required'],
+            'password' => ['required', 'confirmed', 'min:8'],
+        ]);
+
+        $status = Password::reset(
+            $request->only(
+                'email',
+                'password',
+                'password_confirmation',
+                'token'
+            ),
+            function ($user, $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password),
+                ])->save();
+            }
+        );
+
+        if ($status === Password::PASSWORD_RESET) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Password reset successfully.',
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'Invalid or expired password reset link.',
+        ], 400);
     }
 }

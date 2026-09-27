@@ -8,6 +8,8 @@ import Statistics from "./pages/Statistics";
 import Navbar from "./component/Navbar";
 import ShortCode from "./pages/ShortCode";
 import NotFound from "./pages/NotFound";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 import { AuthProvider } from "./context/AuthContext";
 
 
@@ -32,6 +34,8 @@ function App() {
                     {/* Guest */}
                     <Route path="/login" element={<GuestRoute><Login /></GuestRoute>} />
                     <Route path="/register" element={<GuestRoute><Register /></GuestRoute>} />
+                    <Route path="/forgot-password" element={<GuestRoute><ForgotPassword /></GuestRoute>}/>
+                    <Route path="/reset-password" element={<GuestRoute><ResetPassword /></GuestRoute>}/>
 
                 </Routes>
             </BrowserRouter>

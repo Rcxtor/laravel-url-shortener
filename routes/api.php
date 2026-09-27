@@ -10,6 +10,8 @@ use App\Http\Controllers\RedirectController;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/check/{shortCode}', [RedirectController::class, 'check']);
+Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
+Route::post('/reset-password', [AuthController::class, 'resetPassword']);
 
 // guest URL creation
 Route::post('/guest-urls', [UrlController::class, 'storeGuest']);

@@ -37,7 +37,7 @@ function Register() {
 
     return (
         <div className="flex items-center min-h-screen justify-center">
-            <div className= "-mt-2 py-10 px-10 border-2 border-gray-800 rounded-md w-96 shadow-2xl bg-gray-50 flex flex-col items-center">
+            <div className= " py-10 px-10 border-2 border-gray-800 rounded-md w-96 shadow-2xl bg-gray-50 flex flex-col items-center">
 
                 <h1 className="text-3xl font-bold text-gray-800 mb-1">TinyLink</h1>
                 <p className="text-gray-500 mb-6">Create your account</p>

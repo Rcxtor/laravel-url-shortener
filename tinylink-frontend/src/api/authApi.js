@@ -16,3 +16,11 @@ export function getCurrentUser() {
     return api.get("/me");
 }
 
+export function forgotPassword(email) {
+    return api.post("/forgot-password", {
+        email,
+    });
+}
+export function resetPassword(data) {
+    return api.post("/reset-password", data);
+}
