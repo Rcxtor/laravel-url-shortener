@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { logoutUser } from "../api/authAPI";
+import { logoutUser } from "../api/authApi";
 
 function Navbar() {
     const { isAuthenticated, user, logout } = useAuth();
