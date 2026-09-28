@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useEffect } from "react";
 import { createUrl } from "../api/urlAPI";
 import RecentBox from "./RecentBox";
 
@@ -13,6 +12,7 @@ export default function UserBox()
     const [copied, setCopied] = useState(false);
     const [shortLink, setShortLink] = useState("");
     const [message, setMessage] = useState("");
+    const [refreshRecent, setRefreshRecent] = useState(false);
 
     function handleCopy() {
         navigator.clipboard.writeText(shortLink);
@@ -28,10 +28,12 @@ export default function UserBox()
             });
 
             setMessage(response.data.message);
-            console.log(shortCode);
-            setShortLink(shortCode);
+            const code = (response.data.data.short_code);
+
+            setShortLink(`${window.location.origin}/${code}`); //
             setUrl("");
             setShortCode("");
+            setRefreshRecent(prev => !prev);
 
         }catch (error) {
             setMessage(
@@ -73,7 +75,7 @@ export default function UserBox()
                 <hr className="w-full border-[1px] mt-4 mb-2" />
                 {/*resents */}
 
-                <RecentBox/>
+                <RecentBox refresh={refreshRecent} />
                 
                 
             </div>

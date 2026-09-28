@@ -24,3 +24,20 @@ export function forgotPassword(email) {
 export function resetPassword(data) {
     return api.post("/reset-password", data);
 }
+export function getProfile(){
+    return api.get("/profile");
+}
+export function updateProfile(data){
+    return api.put("/profile",data)
+}
+export function changePassword(data) {
+    return api.put("/profile/password", data);
+}
+
+export function deleteAccount(password) {
+    return api.delete("/profile", {
+        data: {
+            password: password,
+        },
+    });
+}

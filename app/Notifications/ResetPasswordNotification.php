@@ -27,11 +27,12 @@ class ResetPasswordNotification extends Notification
             . urlencode($notifiable->email);
 
         return (new MailMessage)
-            ->subject('Reset Your TinyLink Password')
-            ->greeting('Hello!')
-            ->line('You requested a password reset for your TinyLink account.')
-            ->action('Reset Password', $url)
-            ->line('This password reset link will expire after a limited time.')
-            ->line('If you did not request a password reset, you can safely ignore this email.');
+        ->subject('Reset Your TinyLink Password')
+        ->greeting('Hello ' . $notifiable->name . '!')
+        ->line('We received a request to reset the password for your TinyLink account.')
+        ->action('Reset My Password', $url)
+        ->line('This link will expire after a limited time.')
+        ->line('If you did not request a password reset, you can safely ignore this email.')
+        ->salutation('Regards, TinyLink Team');
     }
 }

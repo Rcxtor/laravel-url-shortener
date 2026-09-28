@@ -8,14 +8,16 @@ need to change the you shorten url (DONE)
 7. the instead of code need to show link? (DONE)
 10. UI -> myurl and statictics and checking (DONE)
 9. forget password (DONE)
-8. somewhat profile management
-
-
-
-free user link 5 times click able (DONE)
 One-time link (DONE)
+free user link 5 times click able (DONE)
+somewhat profile management (DONE)
+email fix up (DONE)
+
+
+
+Email Fix-up properly. Since email is also used for password resets,
 
 Link Health Monitor
-Smart Link Rules -> same code 2 different web based on condition 
 Guest creation: 10 links per IP per hour
 QR code
+Smart Link Rules -> same code 2 different web based on condition 

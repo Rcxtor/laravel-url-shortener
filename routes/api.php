@@ -22,6 +22,11 @@ Route::middleware('auth:sanctum')->group(function () {
     // for authentication
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/me', [AuthController::class, 'me']);
+    //profile
+    Route::get('/profile', [AuthController::class, 'profile']);
+    Route::put('/profile', [AuthController::class, 'updateProfile']);
+    Route::put('/profile/password', [AuthController::class, 'changePassword']);
+    Route::delete('/profile', [AuthController::class, 'deleteAccount']);
 
     //for urls 
     Route::get('/urls', [UrlController::class, 'index']);

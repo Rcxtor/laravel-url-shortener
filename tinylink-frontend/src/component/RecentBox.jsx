@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getUrls } from "../api/urlAPI";
 import { Link } from "react-router-dom";
 
-export default function RecentBox(){
+export default function RecentBox({refresh}){
     const [recentUrls, setRecentUrls] = useState([]);
     const [copied, setCopied] = useState(false);
 
@@ -18,7 +18,7 @@ export default function RecentBox(){
         }
 
         fetchRecentUrls();
-    }, []);
+    }, [refresh]);
     return(
         <div className="flex flex-col gap-2 w-[80%]">
             <h1 className="my-2">Recent 5 URLs</h1>

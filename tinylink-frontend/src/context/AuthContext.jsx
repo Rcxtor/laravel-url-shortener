@@ -1,12 +1,33 @@
-import { useState, useEffect, createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { getCurrentUser } from "../api/authAPI";
 
 const AuthContext = createContext();
 
-export function AuthProvider({children}){
-    const [token, setToken] = useState( // token in fetched from the browser
+export function AuthProvider({ children }) {
+    const [token, setToken] = useState(
         localStorage.getItem("token")
     );
 
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        async function fetchUser() {
+            try {
+                const response = await getCurrentUser();
+                setUser(response.data.data.user);
+            } catch (error) {
+                localStorage.removeItem("token");
+                setToken(null);
+                setUser(null);
+            }
+        }
+
+        if (token) {
+            fetchUser();
+        } else {
+            setUser(null);
+        }
+    }, [token]);
     function login(newToken) {
         localStorage.setItem("token", newToken);
         setToken(newToken);
@@ -15,6 +36,7 @@ export function AuthProvider({children}){
     function logout() {
         localStorage.removeItem("token");
         setToken(null);
+        setUser(null);
     }
 
     const isAuthenticated = !!token;
@@ -23,6 +45,7 @@ export function AuthProvider({children}){
         <AuthContext.Provider
             value={{
                 token,
+                user,
                 isAuthenticated,
                 login,
                 logout,

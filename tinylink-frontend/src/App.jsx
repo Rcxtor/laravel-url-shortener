@@ -11,7 +11,7 @@ import NotFound from "./pages/NotFound";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import { AuthProvider } from "./context/AuthContext";
-
+import Profile from "./pages/Profile";
 
 import ProtectedRoute from "./route/ProtectedRoute";
 import GuestRoute from "./route/GuestRoute";
@@ -30,6 +30,7 @@ function App() {
                     {/* Protected */}
                     <Route path="/my-url" element={<ProtectedRoute><MyUrl /></ProtectedRoute>}/>
                     <Route path="/urls/:id" element={ <ProtectedRoute> <Statistics /> </ProtectedRoute> }/>
+                    <Route path="/profile" element={ <ProtectedRoute> <Profile /> </ProtectedRoute>} />
 
                     {/* Guest */}
                     <Route path="/login" element={<GuestRoute><Login /></GuestRoute>} />
