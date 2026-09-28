@@ -492,37 +492,6 @@ Error responses generally follow:
 
 ---
 
-# Deployment
-
-TinyLink is deployed on Railway using two services from the same GitHub repository.
-
-```text
-GitHub Repository
-│
-├── Laravel Backend
-│   └── Railway Backend Service
-│
-└── frontend/
-    └── Railway Frontend Service
-```
-
-The frontend Railway service uses `/frontend` as its root directory.
-
-The production frontend receives the backend URL through:
-
-```env
-VITE_BACKEND_URL=https://laravel-url-shortener-production.up.railway.app
-```
-
-The frontend is built using:
-
-```bash
-npm run build
-```
-
-and served using Vite's preview server.
-
----
 
 # Project Purpose
 
