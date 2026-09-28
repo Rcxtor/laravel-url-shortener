@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProfile , updateProfile, deleteAccount, changePassword } from "../api/authAPI";
+import { getProfile , updateProfile, deleteAccount, changePassword } from "../api/authApi";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
