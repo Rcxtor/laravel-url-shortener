@@ -6,13 +6,10 @@ It allows users to create, manage, and track shortened URLs while also allowing 
 
 ## Live Demo
 
-**Frontend:**
-https://frontend-production-98e2.up.railway.app
+[Live Link](https://laravel-url-shortener.vercel.app/)
 
-**Backend API:**
-https://laravel-url-shortener-production.up.railway.app
 
-> The application is currently deployed with separate frontend and backend services on Railway. The hosting platform may change in the future.
+
 
 ---
 
